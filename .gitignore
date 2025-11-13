@@ -41,3 +41,4 @@ bin/
 ### Mac OS ###
 .DS_Store
 /src/main/java/org/example/api/api_key
+/src/main/java/org/example/data_convertor/Computing.txt

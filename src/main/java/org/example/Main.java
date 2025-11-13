@@ -1,44 +1,51 @@
 package org.example;
 
-import org.example.api.GetRequestMoney;
 import org.example.convertor.Length_convertor;
 import org.example.convertor.Money_Convertor;
 import org.example.convertor.Temp_convertor;
 import org.example.convertor.Weight_convertor;
+import org.example.data_convertor.ConvertorsComputing;
 import org.example.data_convertor.Data_to_convert;
 import org.example.interfaces.Convertor;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws IOException, InterruptedException {
-
-
         Scanner input = new Scanner(System.in);
+        ArrayList<String> computing = new ArrayList<>();
+        LocalDateTime currentDateTime = LocalDateTime.now();
+
         boolean flag = true;
         while (flag) {
-            System.out.println("Что хотите перевести: вес, длина, темп, валюта?");
+            System.out.println("Что хотите перевести: вес, длина, темп, валюта, история?");
             String str = input.nextLine();
             switch (str) {
                 case "вес": {
                     Convertor convertor = new Weight_convertor(dataObj(input));
-                    System.out.println(convertor.convert());
+                    computing.add("Тип: вес. Дата: " + currentDateTime + ". Вычисления: " + convertor.convert());
+                    System.out.println(computing.getLast());
                     break;
                 }
                 case "длина": {
                     Convertor convertor = new Length_convertor(dataObj(input));
-                    System.out.println(convertor.convert());
+                    computing.add("Тип: длина. Дата: " + currentDateTime + ". Вычисления: " + convertor.convert());
+                    System.out.println(computing.getLast());
                     break;
                 }
                 case "темп": {
                     Convertor convertor = new Temp_convertor(dataObj(input));
-                    System.out.println(convertor.convert());
+                    computing.add("Тип: темп. Дата: " + currentDateTime + ". Вычисления: " + convertor.convert());
+                    System.out.println(computing.getLast());
                     break;
                 }
                 case "валюта": {
                     Convertor convertor = new Money_Convertor(dataObj(input));
-                    System.out.println(convertor.convert());
+                    computing.add("Тип: валюта. Дата: " + currentDateTime + ". Вычисления: " + convertor.convert());
+                    System.out.println(computing.getLast());
                     break;
                 }
                 default:
@@ -53,6 +60,12 @@ public class Main {
                 flag = false;
             }
 
+        }
+        System.out.println("Сохранить данные?");
+        String not_pause = input.nextLine();
+        if (not_pause.equalsIgnoreCase("да")) {
+            ConvertorsComputing convertorsComputing = new ConvertorsComputing();
+            convertorsComputing.saveComputing(computing);
         }
         input.close();
     }
