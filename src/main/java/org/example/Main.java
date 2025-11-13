@@ -1,19 +1,24 @@
 package org.example;
 
+import org.example.api.GetRequestMoney;
 import org.example.convertor.Length_convertor;
+import org.example.convertor.Money_Convertor;
 import org.example.convertor.Temp_convertor;
 import org.example.convertor.Weight_convertor;
 import org.example.data_convertor.Data_to_convert;
 import org.example.interfaces.Convertor;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException, InterruptedException {
+
+
         Scanner input = new Scanner(System.in);
         boolean flag = true;
         while (flag) {
-            System.out.println("Что хотите перевести: вес, длина, темп?");
+            System.out.println("Что хотите перевести: вес, длина, темп, валюта?");
             String str = input.nextLine();
             switch (str) {
                 case "вес": {
@@ -28,6 +33,11 @@ public class Main {
                 }
                 case "темп": {
                     Convertor convertor = new Temp_convertor(dataObj(input));
+                    System.out.println(convertor.convert());
+                    break;
+                }
+                case "валюта": {
+                    Convertor convertor = new Money_Convertor(dataObj(input));
                     System.out.println(convertor.convert());
                     break;
                 }
