@@ -42,3 +42,5 @@ bin/
 .DS_Store
 /src/main/java/org/example/api/api_key
 /src/main/java/org/example/data_convertor/Computing.txt
+/data_res/api_key.txt
+/data_res/Computing.txt

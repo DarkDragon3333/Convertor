@@ -1,10 +1,13 @@
 package org.example.api;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.nio.file.Path;
 import java.time.Duration;
 
 public class GetRequestMoney {
@@ -12,8 +15,10 @@ public class GetRequestMoney {
         String cur = "currencies=" + start_cur;
         String base_cur = "base_currency=" + destination_cur;
 
-        String url = "" +
-                cur + "&" + base_cur;
+        BufferedReader readApi = new BufferedReader(
+                new FileReader(String.valueOf(Path.of(".\\data_res\\api_key.txt")))
+        );
+        String url = readApi.readLine() + cur + "&" + base_cur;
 
         HttpClient client = HttpClient.newBuilder()
                 .version(HttpClient.Version.HTTP_2)
@@ -35,7 +40,6 @@ public class GetRequestMoney {
 
         return response.body();
     }
-
 
 
 }

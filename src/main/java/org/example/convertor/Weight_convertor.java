@@ -10,44 +10,44 @@ public class Weight_convertor extends SupConvertor implements Convertor {
 
     @Override
     public String convert() {
-        int number = super.dataToConvert.getNumber();
-        String to_convert_to = super.dataToConvert.getStr();
+        int number = super.dataToConvert.enterNumber();
+        String to_convert_to = super.dataToConvert.to_convert_to();
         String result = "";
 
-        switch (to_convert_to){
+        switch (to_convert_to) {
             case "гр в кг": {
                 var count = number / 10.0;
-                result = count + "гр в кг";
+                result = count + " гр в кг";
                 break;
             }
             case "кг в ц": {
                 var count = number / 100.0;
-                result = String.valueOf(count);
+                result = count + " кг в ц";
                 break;
             }
             case "ц в т": {
                 var count = number / 1000.0;
-                result = String.valueOf(count);
+                result = count + " ц в т";
                 break;
             }
             case "т в ц": {
                 var count = number * 1000.0;
-                result = String.valueOf(count);
+                result = count + "т  в ц";
                 break;
             }
             case "ц в кг": {
                 var count = number * 100.0;
-                result = String.valueOf(count);
+                result = count + " ц в кг";
                 break;
             }
             case "кг в гр": {
                 var count = number * 10.0;
-                result = String.valueOf(count);
+                result = count + " кг в гр";
                 break;
             }
             case "кг в т":
                 var count = number / 1000.0;
-                result = String.valueOf(count);
+                result = count + " кг в т";
                 break;
             default:
                 System.out.println("Введите корректные символы");

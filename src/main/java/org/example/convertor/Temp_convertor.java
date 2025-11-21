@@ -10,18 +10,18 @@ public class Temp_convertor extends SupConvertor implements Convertor {
 
     @Override
     public String convert() {
-        int number = super.dataToConvert.getNumber();
-        String to_convert_to = super.dataToConvert.getStr();
+        int number = super.dataToConvert.enterNumber();
+        String to_convert_to = super.dataToConvert.to_convert_to();
         String result = "";
         switch (to_convert_to){
             case "с в ф": {
                 var count = (number * 9.0 / 5.0) + 32;
-                result = String.valueOf(count);
+                result = count + " с в ф";
                 break;
             }
             case "ф в с": {
                 var count = (number - 32) * 5.0 / 9.0;
-                result = String.valueOf(count);
+                result = count + " ф в с";
                 break;
             }
             default:
