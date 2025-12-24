@@ -19,6 +19,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         boolean flag = true;
+        checkComputingFile();
 
         while (flag) {
             System.out.println("Что хотите сделать: загрузить, удалить, перевести?");
@@ -33,6 +34,7 @@ public class Main {
                     break;
                 }
                 case "перевести": {
+
                     convert(input);
                     break;
                 }
@@ -117,6 +119,21 @@ public class Main {
                 System.out.println("Введите свой api ключ с сайта: https://app.currencyapi.com/");
                 String in = input.nextLine();
                 Files.writeString(pathToApi, in);
+            }
+        } catch (Exception e) {
+            System.out.println("Ошибка создания ApiFile: " + e.getMessage());
+        }
+
+    }
+
+    private static void checkComputingFile() {
+        try {
+
+            Path pathToComputingFile = Path.of(".\\data_res\\Computing.txt");
+            if (!Files.exists(pathToComputingFile, LinkOption.NOFOLLOW_LINKS)) {
+                Path path = Path.of(".\\data_res");
+                Files.createDirectory(path);
+                Files.createFile(pathToComputingFile);
             }
         } catch (Exception e) {
             System.out.println("Ошибка создания ApiFile: " + e.getMessage());
