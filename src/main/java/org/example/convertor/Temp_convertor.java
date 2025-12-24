@@ -16,12 +16,12 @@ public class Temp_convertor extends SupConvertor implements Convertor {
         switch (to_convert_to){
             case "с в ф": {
                 var count = (number * 9.0 / 5.0) + 32;
-                result = count + " с в ф";
+                result = number + " с это " + count + " ф";
                 break;
             }
             case "ф в с": {
                 var count = (number - 32) * 5.0 / 9.0;
-                result = count + " ф в с";
+                result = number + " ф это " + count + " с";
                 break;
             }
             default:

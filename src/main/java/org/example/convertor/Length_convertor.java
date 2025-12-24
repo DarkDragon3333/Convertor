@@ -18,32 +18,32 @@ public class Length_convertor extends SupConvertor implements Convertor {
         switch (to_convert_to) {
             case "мм в см": {
                 var count = number / 10.0;
-                result = count + " мм в см";
+                result = number + " мм это " + count + " см";
                 break;
             }
             case "см в м": {
                 var count = number / 100;
-                result = count + " см в м";
+                result = number + " см это " + count + " м";
                 break;
             }
             case "м в км": {
                 var count = number / 1000;
-                result = count + " м в км";
+                result = number + " м это " + count + " км";
                 break;
             }
             case "км в м": {
                 var count = number * 1000;
-                result = count + " км в м";
+                result = number + " км это " + count + " м";
                 break;
             }
             case "м в см": {
                 var count = number * 100;
-                result = count + " м в см";
+                result = number + " м это " + count + " см";
                 break;
             }
             case "см в мм": {
                 var count = number * 10;
-                result = count + " см в мм";
+                result = number + " см это " + count + " мм";
                 break;
             }
             default:

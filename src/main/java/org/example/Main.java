@@ -8,11 +8,9 @@ import org.example.data_convertor.DataComputingObj;
 import org.example.data_convertor.Data_to_convert;
 import org.example.interfaces.Convertor;
 
-import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.LinkOption;
 import java.nio.file.Path;
-import java.nio.file.attribute.FileAttribute;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -47,7 +45,6 @@ public class Main {
             }
         }
 
-
         input.close();
     }
 
@@ -58,24 +55,24 @@ public class Main {
 
             boolean flag = true;
             while (flag) {
-                System.out.println("Что хотите перевести: вес, длина, темп, валюта, история?");
+                System.out.println("Что хотите перевести: вес, длина, темп, валюта ?");
                 String str = input.nextLine();
                 switch (str) {
                     case "вес": {
                         Convertor convertor = new Weight_convertor(dataObj(input));
-                        computing.add("Тип: вес. Дата: " + currentDateTime + ". Вычисления: " + convertor.convert());
+                        computing.add("Тип: вес.    Дата: " + currentDateTime + ". Вычисления: " + convertor.convert());
                         System.out.println(computing.getLast());
                         break;
                     }
                     case "длина": {
                         Convertor convertor = new Length_convertor(dataObj(input));
-                        computing.add("Тип: длина. Дата: " + currentDateTime + ". Вычисления: " + convertor.convert());
+                        computing.add("Тип: длина.  Дата: " + currentDateTime + ". Вычисления: " + convertor.convert());
                         System.out.println(computing.getLast());
                         break;
                     }
                     case "темп": {
                         Convertor convertor = new Temp_convertor(dataObj(input));
-                        computing.add("Тип: темп. Дата: " + currentDateTime + ". Вычисления: " + convertor.convert());
+                        computing.add("Тип: темп.    Дата: " + currentDateTime + ". Вычисления: " + convertor.convert());
                         System.out.println(computing.getLast());
                         break;
                     }

@@ -17,37 +17,37 @@ public class Weight_convertor extends SupConvertor implements Convertor {
         switch (to_convert_to) {
             case "гр в кг": {
                 var count = number / 10.0;
-                result = count + " гр в кг";
+                result = number + " гр это " + count + " кг";
                 break;
             }
             case "кг в ц": {
                 var count = number / 100.0;
-                result = count + " кг в ц";
+                result = number + " кг это " + count + " ц";
                 break;
             }
             case "ц в т": {
-                var count = number / 1000.0;
-                result = count + " ц в т";
+                var count = number / 10.0;
+                result = number + " ц это " + count + " т";
                 break;
             }
             case "т в ц": {
-                var count = number * 1000.0;
-                result = count + "т  в ц";
+                var count = number * 10.0;
+                result = number + " т это " + count + " ц";
                 break;
             }
             case "ц в кг": {
                 var count = number * 100.0;
-                result = count + " ц в кг";
+                result = number + " ц это " + count + " кг";
                 break;
             }
             case "кг в гр": {
-                var count = number * 10.0;
-                result = count + " кг в гр";
+                var count = number * 1000.0;
+                result = number + " кг это " + count + " гр";
                 break;
             }
             case "кг в т":
                 var count = number / 1000.0;
-                result = count + " кг в т";
+                result = number + " гг это " + count + " т";
                 break;
             default:
                 System.out.println("Введите корректные символы");

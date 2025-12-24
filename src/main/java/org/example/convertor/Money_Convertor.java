@@ -22,8 +22,8 @@ public class Money_Convertor extends SupConvertor implements Convertor {
         GetRequestMoney getRequestMoney = new GetRequestMoney();
         result = getRequestMoney.HttpRequest(to_convert_to.getLast(), to_convert_to.getFirst());
 
-        return Double.parseDouble(parseJsonAnswer(result)) * number + " " +
-                to_convert_to.getLast() + " в " + to_convert_to.getFirst();
+        return number + " " + to_convert_to.getFirst() + " это "
+                + Double.parseDouble(parseJsonAnswer(result)) * number + " " + to_convert_to.getLast();
     }
 
     private static String parseJsonAnswer(String json) {
