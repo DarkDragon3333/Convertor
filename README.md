@@ -26,7 +26,6 @@
 
 ## Технологический стек
 
-### Frontend (Android)
 - Java
 - Http
 - Gradle
